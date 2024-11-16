@@ -47,7 +47,7 @@ namespace animal_shelter
         }*/
 
         //Making an empty dictionary with the name as the key to the Pet object
-        static Dictionary<string, object> animalList = new Dictionary<string, object>();
+        static Dictionary<string, Pet> animalList = new Dictionary<string, Pet>();
 
         public static void add(int ID, string name, int age, string breed)
         {
@@ -94,7 +94,7 @@ namespace animal_shelter
             Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
             add(genID, myPet.Name, myPet.Age, myPet.Breed);
             genID++;
-            Console.WriteLine($"Key: {myPet.Name}, Age: {animalList["Max"]}");
+            Console.WriteLine($"Key: {myPet.Name}, Age: {animalList["Max"].Age}");
             //Create While Loop That Allows User to Use Methods and Exits when done
 
             while (userInp != "Leave")
@@ -126,28 +126,42 @@ namespace animal_shelter
 
                     while (!animalList.ContainsKey(userInp) && !userInp.ToUpper().Equals("EXIT"))
                     {
-                        //Which Pet
-                        Console.WriteLine("\nWhich Pet did you want? We have: ");
+                        //Initally checks to see if any pets are in the shelter
+                        if(animalList.Count == 0)
+                        {
+                            Console.WriteLine("\nWe don't have any Pets at this time...\nReturning to Menu");
+                            userInp = "EXIT";
+                        }
+                        else
+                        {
+                            //Which Pet
+                            Console.WriteLine("\nWhich Pet did you want? We have: ");
 
-                        foreach (var pet in animalList.Keys)
-                        {
-                            Console.WriteLine(pet);
+                            foreach (var pet in animalList.Keys)
+                            {
+                                Console.WriteLine(pet);
+                            }
+                            
+                            Console.WriteLine("*case sensitive*");
+                            Console.WriteLine("\nType 'exit' to go back");
+                            userInp = Console.ReadLine();
+                            //If user types animal name correctly, remove from Dictionary annd add to ID just cause
+                            if (animalList.ContainsKey(userInp))
+                            {
+                                remove(userInp);
+                                Console.WriteLine("We're sad to see him go");
+                                genID++;
+                            }
+                            else if (userInp.ToUpper().Equals("EXIT"))
+                            { //Return to Main Menu
+                                Console.WriteLine("Returning to Main Menu");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Be sure to type in the EXACT name of the pet!");
+                            }
                         }
-                        Console.WriteLine("*case sensitive");
-                        userInp = Console.ReadLine();
-                        //If user types animal name correctly, remove from Dictionary annd add to ID just cause
-                        if (animalList.ContainsKey(userInp))
-                        {
-                            remove(userInp);
-                            Console.WriteLine("We're sad to see him go");
-                            genID++;
-                        }
-                        else if (userInp.ToUpper().Equals("EXIT")) { //Return to Main Menu
-                            Console.WriteLine("Returning to Main Menu");    
-                        }
-                        else {
-                            Console.WriteLine("Be sure to type in the EXACT name of the pet!");
-                        }
+                        
                     }
                 }
 
