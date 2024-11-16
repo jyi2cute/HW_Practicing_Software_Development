@@ -19,11 +19,17 @@ namespace animal_shelter
         //pet object
         public Pet(int petID, int age, string name, string breed, string color, bool petfriendly)
         {
+            //Pet ID
             PetID = petID;
+            //Pet's age
             Age = age;
+            //Pet's name
             Name = name;
+            //Pet's breed or species
             Breed = breed;
+            //Pet's color
             Color = color;
+            //If the pet is friendly or not
             PetFriendly = petfriendly;
         }
     }
