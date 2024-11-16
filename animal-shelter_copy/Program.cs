@@ -15,18 +15,22 @@ namespace animal_shelter
         //the dog class or the general pet class 
         class Pet
         {
+            public int petID;
             public int age;
             public string name;
             public string breed;
+            public string color;
+            public bool petfriendly;
 
             //Pet constructor
+            //Update: moved this to a new file
             //Added in the pet constructor - Jin 
-            public Pet(int age, string name, string breed)
-            {
-                this.age = age;
-                this.name = name;
-                this.breed = breed;
-            }
+            //public Pet(int age, string name, string breed)
+            //{
+            //    this.age = age;
+            //    this.name = name;
+            //    this.breed = breed;
+            //}
 
         }
 
@@ -77,16 +81,11 @@ namespace animal_shelter
         {
             Console.WriteLine("Welcome to the Animal Shelter!");
 
-            //Pet object - Jin
-            int petAge = 4;
-            string petName = "Max";
-            string petBreed = "Husky";
 
-            Pet myPet = new Pet(petAge, petName, petBreed);
-            Console.WriteLine($"Pet Name: {myPet.name}");
-            Console.WriteLine($"Pet Age: {myPet.age}");
-            Console.WriteLine($"Pet Breed: { myPet.breed}");
-           
+
+            //Using object/constructor
+            Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
+            
         }
 
     }
