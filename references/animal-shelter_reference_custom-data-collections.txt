@@ -1,0 +1,113 @@
+﻿Program.cs
+add (public, static, void)
+* ID (param, int)
+   * Parameter of add
+   * Inputted as parameter for newAnimal
+* name (param, string)
+   * Parameter of add
+   * Inputted as parameter for newAnimal
+* age (param, int)
+   * Parameter of add
+   * Inputted as parameter for newAnimal
+* breed (param, string)
+   * Parameter of add
+   * Inputted as parameter for newAnimal
+* newAnimal (object, Pet(ID, age, name, breed))
+   * Instance of Pet class
+   * Added to animalList
+remove (public, static, void)
+* name (string, param)
+   * Parameter of remove
+   * Removed from animalList
+Main (static, void)
+* args (string array, param)
+* genID (int)
+   * Pet ID that will update which each added pet
+   * Initialized to 1000
+* userInp (string)
+   * Initialized to “”
+   * Tracks user input
+* myPet (object, Pet(1462, 4, "Max", "Husky", "Black and White", true))
+   * Added to animalList
+* tempName (local string)
+   * Console.ReadLine() after “What’s their name?”
+* tempAge (local int)
+   * Int32.Parse(Console.ReadLine()); after “How old are they?”
+* tempBreed (local string) 
+   * Console.ReadLine() after “Do you know the breed of this little guy?”
+* pet (local var)
+   * Local var in foreach loop iterating through animalList.Keys
+   * Lists pets in animalList when user goes to ADOPT
+* pet (local var)
+   * Local var in foreach loop iterating through animalList.Keys
+   * Lists pets in animalList when user goes to LEARN
+* pet (local var)
+   * Local var in foreach loop iterating through animalList.Keys
+   * Lists pets in animalList when user goes to BROWSE
+
+
+Pet.cs
+* Pet (public class)
+   * PetID (public, int, constructor)
+      * Takes value of Pet object parameter petID
+   * Age (public, int, constructor)
+      * Takes value of Pet object parameter age
+   * Name (public, string, constructor)
+      * Takes value of Pet object parameter name
+   * Breed (public, string, constructor)
+      * Takes value of Pet object parameter breed
+   * Color (public, string, constructor)
+      * Takes value of Pet object parameter color
+   * PetFriendly (public, bool, constructor)
+      * Takes value of Pet object parameter petfriendly
+* Pet (public)
+   * petID (param, int)
+      * Parameter of Pet object
+   * age (param, int)
+      * Parameter of Pet object
+   * name (param, string)
+      * Parameter of Pet object
+   * breed (param, string)
+      * Parameter of Pet object
+   * color (param, string)
+      * Parameter of Pet object
+   * petfriendly (param, bool)
+      * Parameter of Pet object
+   * rand (object, Random())
+      * Instance of Random
+   * randVal (int)
+      * Initialized to rand.Next(0,4), meaning it’s a random integer from 0 to 4, to determine Pet.Color
+      * Set to rand.Next(0,1) to determine this.PetFriendly
+   * colorBase (string array)
+      * Pet base color
+      * ["Black", "Black and White", "Beige", "White", "Gray"]
+   * this.Color (property)
+      * Property of Pet class
+      * Initialized to colorBase[randVal]
+   * this.Petfriendly
+      * Property of Pet class
+      * Initialized to true if randVal == 1
+      * Initialized to false if randVal != 1
+Person.cs
+* Person (public class)
+   * PersonID (public, int, constructor)
+   * Name (public, string, constructor)
+   * PreferredSpecies (public, string, constructor)
+   * HasKids (public, bool, constructor)
+   * OtherPets (public, bool, constructor)
+* Person (public object)
+   * personID (param, int)
+      * Parameter of Person object
+      * Initialized to PersonID
+   * name (param, string)
+      * Parameter of Person object
+      * Initialized to Name
+   * preferredSpecies (param, string)
+      * Parameter of Person object
+      * Initialized to PreferredSpecies
+   * hasKids (param, bool)
+      * Parameter of Person object
+      * Initialized to HasKids
+   * otherPets (param, bool)
+      * Parameter of Person object
+      * Initialized to OtherPets
