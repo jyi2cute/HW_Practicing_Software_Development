@@ -100,7 +100,7 @@ namespace animal_shelter
             while (userInp != "Leave")
             {
                 Console.WriteLine("\nWhat would you like to do?");
-                
+
                 Console.WriteLine("Choose to: Adopt, Return, Learn, Browse, Leave");
                 userInp = Console.ReadLine();
                 //Will determine what method user requested based on first letter given, upercasing it for extra certainty
@@ -110,9 +110,8 @@ namespace animal_shelter
                 {
                     Console.WriteLine("What's their name?");
                     string tempName = Console.ReadLine();
-                    Console.WriteLine("How old are they?"); 
+                    Console.WriteLine("How old are they?");
                     int tempAge = Int32.Parse(Console.ReadLine());
-                    Console.WriteLine("User didn't give an integer value");
                     Console.WriteLine("Do you know the breed of this little guy?");
                     string tempBreed = Console.ReadLine();
                     add(genID, tempName, tempAge, tempBreed);
@@ -127,8 +126,9 @@ namespace animal_shelter
                     while (!animalList.ContainsKey(userInp) && !userInp.ToUpper().Equals("EXIT"))
                     {
                         //Initally checks to see if any pets are in the shelter
-                        if(animalList.Count == 0)
+                        if (animalList.Count == 0)
                         {
+                            Thread.Sleep(2000);//Just a brief wait
                             Console.WriteLine("\nWe don't have any Pets at this time...\nReturning to Menu");
                             userInp = "EXIT";
                         }
@@ -141,7 +141,7 @@ namespace animal_shelter
                             {
                                 Console.WriteLine(pet);
                             }
-                            
+
                             Console.WriteLine("*case sensitive*");
                             Console.WriteLine("\nType 'exit' to go back");
                             userInp = Console.ReadLine();
@@ -161,7 +161,7 @@ namespace animal_shelter
                                 Console.WriteLine("Be sure to type in the EXACT name of the pet!");
                             }
                         }
-                        
+
                     }
                 }
 

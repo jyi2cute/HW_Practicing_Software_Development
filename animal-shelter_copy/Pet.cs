@@ -53,6 +53,7 @@ namespace animal_shelter
             this.Color = colorBase[randVal];
             //Choose Boolean Value
             randVal = rand.Next(0, 1);
+
             //If the pet is friendly or not
             if (randVal == 1)
             {
