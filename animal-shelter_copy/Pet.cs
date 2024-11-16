@@ -8,6 +8,8 @@ namespace animal_shelter
 {
     public class Pet
     {
+        
+        
         //constructor
         public int PetID { get; set; }
         public int Age { get; set; }
@@ -17,7 +19,7 @@ namespace animal_shelter
         public bool PetFriendly { get; set; }
 
         //pet object
-        public Pet(int petID, int age, string name, string breed, string color, bool petfriendly)
+        public Pet(int petID, int age, string name, string breed, string color , bool petfriendly)
         {
             //Pet ID
             PetID = petID;
@@ -29,8 +31,37 @@ namespace animal_shelter
             Breed = breed;
             //Pet's color
             Color = color;
+
             //If the pet is friendly or not
             PetFriendly = petfriendly;
+        }
+        public Pet(int petID, int age, string name, string breed)
+        {
+            //Pet ID
+            PetID = petID;
+            //Pet's age
+            Age = age;
+            //Pet's name
+            Name = name;
+            //Pet's breed or species
+            Breed = breed;
+            //Pet's color
+            Random rand = new Random();
+            int randVal = rand.Next(0, 4);
+            string[] colorBase = ["Black", "Black and White", "Beige", "White", "Gray"];
+
+            this.Color = colorBase[randVal];
+            //Choose Boolean Value
+            randVal = rand.Next(0, 1);
+            //If the pet is friendly or not
+            if (randVal == 1)
+            {
+                this.PetFriendly = true;
+            }
+            else
+            {
+                this.PetFriendly = false;
+            }
         }
     }
 }
