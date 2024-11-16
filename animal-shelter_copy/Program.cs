@@ -77,6 +77,15 @@ namespace animal_shelter
         {
             Console.WriteLine("Welcome to the Animal Shelter!");
 
+            //Pet object - Jin
+            int petAge = 4;
+            string petName = "Max";
+            string petBreed = "Husky";
+
+            Pet myPet = new Pet(petAge, petName, petBreed);
+            Console.WriteLine($"Pet Name: {myPet.name}");
+            Console.WriteLine($"Pet Age: {myPet.age}");
+            Console.WriteLine($"Pet Breed: { myPet.breed}");
            
         }
 
