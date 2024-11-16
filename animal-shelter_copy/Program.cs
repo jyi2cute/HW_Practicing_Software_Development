@@ -88,15 +88,15 @@ namespace animal_shelter
 
             Console.WriteLine("Welcome to the Animal Shelter!");
 
-
-
             //Using object/constructor
             Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
             add(genID, myPet.Name, myPet.Age, myPet.Breed);
+            
             genID++;
-            Console.WriteLine($"Key: {myPet.Name}, Age: {animalList["Max"].Age}");
-            //Create While Loop That Allows User to Use Methods and Exits when done
+            
+            //Console.WriteLine($"Key: {myPet.Name}, Age: {animalList["Max"].Age}"); 
 
+            //Create While Loop That Allows User to Use Methods and Exits when done
             while (!userInp.ToUpper().Equals("LEAVE"))
             {
                 Console.WriteLine("\nWhat would you like to do?");
@@ -108,6 +108,10 @@ namespace animal_shelter
                 //Return will use add feature
                 if (userInp.ToUpper().Equals("RETURN"))
                 {
+                    /* RETURN
+                     * Won't ask for last two details in Pet Object of color and friendliness
+                     * Default Constructor made specifically to randomly generate those last to values
+                     */
                     Console.WriteLine("What's their name?");
                     string tempName = Console.ReadLine();
                     Console.WriteLine("How old are they?");
@@ -122,7 +126,10 @@ namespace animal_shelter
                 //Adopt will use the remove feature
                 else if (userInp.ToUpper().Equals("ADOPT"))
                 {
-
+                    /* ADOPT
+                     * Will simply remove Pet from function unless match function is added later
+                     * Default Constructor made specifically to randomly generate those last to values
+                     */
                     while (!animalList.ContainsKey(userInp) && !userInp.ToUpper().Equals("EXIT"))
                     {
                         //Initally checks to see if any pets are in the shelter
@@ -145,7 +152,7 @@ namespace animal_shelter
                             Console.WriteLine("*case sensitive*");
                             Console.WriteLine("\nType 'exit' to go back");
                             userInp = Console.ReadLine();
-                            //If user types animal name correctly, remove from Dictionary annd add to ID just cause
+                            //If user types animal name correctly, remove from Dictionary and add to ID just to ensure no overlap
                             if (animalList.ContainsKey(userInp))
                             {
                                 remove(userInp);
@@ -168,6 +175,10 @@ namespace animal_shelter
                 //Learn the pet will use the inspect function
                 else if (userInp.ToUpper().Equals("LEARN") && !userInp.ToUpper().Equals("EXIT"))
                 {
+                    /* LEARN
+                     * Will simply inspect Pet with void function generating string about the pet chosen 
+                     * Displays all details of the Pet including friendliness and color
+                     */
                     while (!animalList.ContainsKey(userInp) && !userInp.ToUpper().Equals("EXIT"))
                     {
                         //Initally checks to see if any pets are in the shelter
@@ -207,9 +218,13 @@ namespace animal_shelter
                     }
                     
                 }
-                //Browse list the whole dictionary
+                //Browse list the to glance through the whole dictionary and its objects
                 else if (userInp.ToUpper().Equals("BROWSE"))
                 {
+                    /* BROWSE
+                     * Will browse through all of the dictionary briefly 
+                     * Think window shopping as opposed to actually adopting and learning about the Pet
+                     */
                     Console.WriteLine("\nWe have a lot of Pets!");
                     foreach (var pets in animalList.Values)
                     {
@@ -217,6 +232,8 @@ namespace animal_shelter
                     }
                 }
             }
+
+            //Code has been ended, user typed Leave
             Console.WriteLine("\nWe hope you enjoyed your experience!");
             Thread.Sleep(5000);
             
