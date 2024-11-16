@@ -110,8 +110,9 @@ namespace animal_shelter
                 {
                     Console.WriteLine("What's their name?");
                     string tempName = Console.ReadLine();
-                    Console.WriteLine("How old are they?");
+                    Console.WriteLine("How old are they?"); 
                     int tempAge = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("User didn't give an integer value");
                     Console.WriteLine("Do you know the breed of this little guy?");
                     string tempBreed = Console.ReadLine();
                     add(genID, tempName, tempAge, tempBreed);
@@ -123,29 +124,33 @@ namespace animal_shelter
                 else if (userInp.ToUpper().Equals("ADOPT"))
                 {
 
-                    while (!animalList.ContainsKey(userInp))
+                    while (!animalList.ContainsKey(userInp) && !userInp.ToUpper().Equals("EXIT"))
                     {
                         //Which Pet
-                        Console.WriteLine("*case sensitive");
-                        Console.WriteLine("Which Pet did you want? We have: ");
+                        Console.WriteLine("\nWhich Pet did you want? We have: ");
 
                         foreach (var pet in animalList.Keys)
                         {
                             Console.WriteLine(pet);
                         }
+                        Console.WriteLine("*case sensitive");
                         userInp = Console.ReadLine();
                         //If user types animal name correctly, remove from Dictionary annd add to ID just cause
                         if (animalList.ContainsKey(userInp))
                         {
                             remove(userInp);
+                            Console.WriteLine("We're sad to see him go");
                             genID++;
                         }
-
+                        else if (userInp.ToUpper().Equals("EXIT")) { //Return to Main Menu
+                            Console.WriteLine("Returning to Main Menu");    
+                        }
+                        else {
+                            Console.WriteLine("Be sure to type in the EXACT name of the pet!");
+                        }
                     }
-                    Console.WriteLine("We're sad to see him go");
-                    userInp = Console.ReadLine();
-                    genID++;
                 }
+
                 //Learn the pet will use the inspect function
                 else if (userInp.ToUpper().Equals("LEARN"))
                 {
