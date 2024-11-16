@@ -19,7 +19,7 @@ namespace animal_shelter
         public Person(int personID, string name, bool hasKids, string preferredSpecies, bool otherPets)
         {   // int for tracking's sake
             PersonID = personID;
-            // maybe irrelevant
+            // maybe irrelevant, unless use in call text
             Name = name;
             // boolean y/n, helps with filtering
             HasKids = hasKids;

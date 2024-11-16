@@ -14,7 +14,7 @@ namespace animal_shelter
         public string Name { get; set; }
         public string Breed { get; set; }
         public string Color { get; set; }
-        public bool PetFriendly { get set};
+        public bool PetFriendly { get; set; }
 
         //pet object
         public Pet(int petID, int age, string name, string breed, string color, bool petfriendly)
