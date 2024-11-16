@@ -97,7 +97,7 @@ namespace animal_shelter
             Console.WriteLine($"Key: {myPet.Name}, Age: {animalList["Max"].Age}");
             //Create While Loop That Allows User to Use Methods and Exits when done
 
-            while (userInp != "Leave")
+            while (!userInp.ToUpper().Equals("LEAVE"))
             {
                 Console.WriteLine("\nWhat would you like to do?");
 
@@ -128,8 +128,8 @@ namespace animal_shelter
                         //Initally checks to see if any pets are in the shelter
                         if (animalList.Count == 0)
                         {
-                            Thread.Sleep(2000);//Just a brief wait
-                            Console.WriteLine("\nWe don't have any Pets at this time...\nReturning to Menu");
+                            Thread.Sleep(1000);//Just a brief wait to signify transition
+                            Console.WriteLine("\nWe don't have anymore Pets at this time...\nReturning to Menu");
                             userInp = "EXIT";
                         }
                         else
@@ -166,21 +166,60 @@ namespace animal_shelter
                 }
 
                 //Learn the pet will use the inspect function
-                else if (userInp.ToUpper().Equals("LEARN"))
+                else if (userInp.ToUpper().Equals("LEARN") && !userInp.ToUpper().Equals("EXIT"))
                 {
+                    while (!animalList.ContainsKey(userInp) && !userInp.ToUpper().Equals("EXIT"))
+                    {
+                        //Initally checks to see if any pets are in the shelter
+                        if (animalList.Count == 0)
+                        {
+                            Thread.Sleep(1000);//Just a brief wait to signify transition
+                            Console.WriteLine("\nWe don't have anymore Pets at this time...\nReturning to Menu");
+                            userInp = "EXIT";
+                        }
+                        else
+                        {
+                            //Which Pet
+                            Console.WriteLine("\nWhich Pet did you want to learn about? We have: ");
 
-                    genID++;
+                            foreach (var pet in animalList.Keys)
+                            {
+                                Console.WriteLine(pet);
+                            }
+
+                            Console.WriteLine("*case sensitive*");
+                            Console.WriteLine("\nType 'exit' to go back");
+                            userInp = Console.ReadLine();
+                            //If user types animal name correctly, remove from Dictionary annd add to ID just cause
+                            if (animalList.ContainsKey(userInp))
+                            {
+                                //inspect function
+                            }
+                            else if (userInp.ToUpper().Equals("EXIT"))
+                            { //Return to Main Menu
+                                Console.WriteLine("Returning to Main Menu");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Be sure to type in the EXACT name of the pet!");
+                            }
+                        }
+                    }
+                    
                 }
                 //Browse list the whole dictionary
                 else if (userInp.ToUpper().Equals("BROWSE"))
                 {
-                    Console.WriteLine("We have a lot of Pets!");
+                    Console.WriteLine("\nWe have a lot of Pets!");
                     foreach (var pets in animalList.Values)
                     {
-                        //Console.WriteLine($"We have: {pets.Name}");
+                        Console.WriteLine($"We have: {pets.Name} and they're a {pets.Breed}");
                     }
                 }
             }
+            Console.WriteLine("\nWe hope you enjoyed your experience!");
+            Thread.Sleep(5000);
+            
         }
 
     }
