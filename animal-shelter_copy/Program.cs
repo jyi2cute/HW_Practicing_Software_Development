@@ -100,13 +100,13 @@ namespace animal_shelter
             while (userInp != "Leave")
             {
                 Console.WriteLine("\nWhat would you like to do?");
-                Console.WriteLine("*case sensitive");
+                
                 Console.WriteLine("Choose to: Adopt, Return, Learn, Browse, Leave");
                 userInp = Console.ReadLine();
                 //Will determine what method user requested based on first letter given, upercasing it for extra certainty
                 //Will also cycle through again if user types incorect value
                 //Return will use add feature
-                if (userInp.ToUpper().StartsWith("R"))
+                if (userInp.ToUpper().Equals("RETURN"))
                 {
                     Console.WriteLine("What's their name?");
                     string tempName = Console.ReadLine();
@@ -120,11 +120,13 @@ namespace animal_shelter
                     genID++;
                 }
                 //Adopt will use the remove feature
-                else if (userInp.ToUpper().StartsWith("A"))
+                else if (userInp.ToUpper().Equals("ADOPT"))
                 {
+
                     while (!animalList.ContainsKey(userInp))
                     {
                         //Which Pet
+                        Console.WriteLine("*case sensitive");
                         Console.WriteLine("Which Pet did you want? We have: ");
 
                         foreach (var pet in animalList.Keys)
@@ -145,13 +147,13 @@ namespace animal_shelter
                     genID++;
                 }
                 //Learn the pet will use the inspect function
-                else if (userInp.ToUpper().StartsWith("L"))
+                else if (userInp.ToUpper().Equals("LEARN"))
                 {
 
                     genID++;
                 }
                 //Browse list the whole dictionary
-                else if (userInp.ToUpper().StartsWith("B"))
+                else if (userInp.ToUpper().Equals("BROWSE"))
                 {
                     Console.WriteLine("We have a lot of Pets!");
                     foreach (var pets in animalList.Values)
