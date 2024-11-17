@@ -8,8 +8,8 @@ namespace animal_shelter
 {
     public class Pet
     {
-        
-        
+
+
         //constructor
         public int PetID { get; set; }
         public int Age { get; set; }
@@ -19,7 +19,7 @@ namespace animal_shelter
         public bool PetFriendly { get; set; }
 
         //pet object
-        public Pet(int petID, int age, string name, string breed, string color , bool petfriendly)
+        public Pet(int petID, int age, string name, string breed, string color, bool petfriendly)
         {
             //Pet ID
             PetID = petID;
@@ -64,5 +64,19 @@ namespace animal_shelter
                 this.PetFriendly = false;
             }
         }
+        public override string ToString()
+        {
+            if (PetFriendly)
+            {
+                return ($"{Name} is {Age} and a {Breed}. They're very friendly and is has a {Color} coat");
+            }
+            else
+            {
+                {
+                    return ($"{Name} is {Age} and a {Breed}. They're a bit shy and need some training, and they has a {Color} coat");
+                }
+            }
+        }
+
     }
 }
