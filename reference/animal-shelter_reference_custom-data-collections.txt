@@ -88,26 +88,3 @@ Pet.cs
       * Property of Pet class
       * Initialized to true if randVal == 1
       * Initialized to false if randVal != 1
-Person.cs
-* Person (public class)
-   * PersonID (public, int, constructor)
-   * Name (public, string, constructor)
-   * PreferredSpecies (public, string, constructor)
-   * HasKids (public, bool, constructor)
-   * OtherPets (public, bool, constructor)
-* Person (public object)
-   * personID (param, int)
-      * Parameter of Person object
-      * Initialized to PersonID
-   * name (param, string)
-      * Parameter of Person object
-      * Initialized to Name
-   * preferredSpecies (param, string)
-      * Parameter of Person object
-      * Initialized to PreferredSpecies
-   * hasKids (param, bool)
-      * Parameter of Person object
-      * Initialized to HasKids
-   * otherPets (param, bool)
-      * Parameter of Person object
-      * Initialized to OtherPets
