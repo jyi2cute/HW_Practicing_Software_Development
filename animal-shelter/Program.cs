@@ -53,6 +53,7 @@ namespace animal_shelter
             Console.WriteLine("Welcome to the Animal Shelter!");
 
             //Using object/constructor
+            //added more pets
             Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
             Pet myPet = new Pet(1256, 8, "Buddy", "Bulldog", "Gray", false);
             Pet myPet = new Pet(1600, 2, "Coco", "Maltipoo", "Brown", true);
