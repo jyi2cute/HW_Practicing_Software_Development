@@ -13,7 +13,7 @@ namespace animal_shelter
         //Making an empty dictionary with the name as the key to the Pet object
         static Dictionary<string, Pet> animalList = new Dictionary<string, Pet>();
 
-        public static void add(int ID, string name, int age, string breed)
+        public static void add(int ID, string name, string age, string breed)
         {
             //Error handling
             try
@@ -53,7 +53,7 @@ namespace animal_shelter
             Console.WriteLine("Welcome to the Animal Shelter!");
 
             //Using object/constructor
-            Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
+            Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", false);
             Pet myPet = new Pet(1256, 8, "Buddy", "Bulldog", "Gray", false);
             Pet myPet = new Pet(1600, 2, "Coco", "Maltipoo", "Brown", true);
             Pet myPet = new Pet(6892, 10, "Teddy", "German Shepherd", true);
@@ -84,7 +84,7 @@ namespace animal_shelter
                     Console.WriteLine("What's their name?");
                     string tempName = Console.ReadLine();
                     Console.WriteLine("How old are they?");
-                    int tempAge = Int32.Parse(Console.ReadLine());
+                    string tempAge = Console.ReadLine();
                     Console.WriteLine("Do you know the breed of this little guy?");
                     string tempBreed = Console.ReadLine();
                     add(genID, tempName, tempAge, tempBreed);

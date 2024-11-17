@@ -12,14 +12,14 @@ namespace animal_shelter
 
         //constructor
         public int PetID { get; set; }
-        public int Age { get; set; }
+        public string Age { get; set; }
         public string Name { get; set; }
         public string Breed { get; set; }
         public string Color { get; set; }
         public bool PetFriendly { get; set; }
 
         //pet object
-        public Pet(int petID, int age, string name, string breed, string color, bool petfriendly)
+        public Pet(int petID, string age, string name, string breed, string color, bool petfriendly)
         {
             //Pet ID
             PetID = petID;
@@ -35,7 +35,7 @@ namespace animal_shelter
             //If the pet is friendly or not
             PetFriendly = petfriendly;
         }
-        public Pet(int petID, int age, string name, string breed)
+        public Pet(int petID, string age, string name, string breed)
         {
             //Pet ID
             PetID = petID;
@@ -52,7 +52,7 @@ namespace animal_shelter
 
             this.Color = colorBase[randVal];
             //Choose Boolean Value
-            randVal = rand.Next(0, 1);
+            randVal = rand.Next(0, 2);
 
             //If the pet is friendly or not
             if (randVal == 1)
@@ -68,13 +68,11 @@ namespace animal_shelter
         {
             if (PetFriendly)
             {
-                return ($"{Name} is {Age} and a {Breed}. They're very friendly and is has a {Color} coat");
+                return (Name + " is " + Age + " and a " + Breed + ". They're very friendly and have a " + Color + " coat.");
             }
             else
             {
-                {
-                    return ($"{Name} is {Age} and a {Breed}. They're a bit shy and need some training, and they has a {Color} coat");
-                }
+                return (Name + " is " + Age + " and a " + Breed + ". They're not too friendly and have a " + Color + " coat.");
             }
         }
 
