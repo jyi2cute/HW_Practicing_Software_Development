@@ -52,26 +52,19 @@ namespace animal_shelter
 
             Console.WriteLine("Welcome to the Animal Shelter!");
 
-            //Using object/constructor
-            Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", false);
-            Pet myPet = new Pet(1256, 8, "Buddy", "Bulldog", "Gray", false);
-            Pet myPet = new Pet(1600, 2, "Coco", "Maltipoo", "Brown", true);
-            Pet myPet = new Pet(6892, 10, "Teddy", "German Shepherd", true);
-            Pet myPet = new Pet(9003, 6, "Luna", "Chihuahua", false);
-            add(genID, myPet.Name, myPet.Age, myPet.Breed);
-
-
             //added more pets
-            Pet myPet1 = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
-            Pet myPet2 = new Pet(1256, 8, "Buddy", "Bulldog", "Gray", false);
-            Pet myPet3 = new Pet(1600, 2, "Coco", "Maltipoo", "Brown", true);
-            Pet myPet4 = new Pet(6892, 10, "Teddy", "German Shepherd", "Brown and Black", true);
-            Pet myPet5 = new Pet(9003, 6, "Luna", "Chihuahua", "Tan", false);
-            add(genID, myPet1.Name, myPet1.Age, myPet1.Breed);
-            add(genID, myPet2.Name, myPet2.Age, myPet2.Breed);
-            add(genID, myPet3.Name, myPet3.Age, myPet3.Breed);
-            add(genID, myPet4.Name, myPet4.Age, myPet4.Breed);
-            add(genID, myPet5.Name, myPet5.Age, myPet5.Breed);
+            Pet myPet1 = new Pet(1462, "4", "Max", "Husky", "Black and White", true);
+            Pet myPet2 = new Pet(1256, "8", "Buddy", "Bulldog", "Gray", false);
+            Pet myPet3 = new Pet(1600, "2", "Coco", "Maltipoo", "Brown", true);
+            Pet myPet4 = new Pet(6892, "10", "Teddy", "German Shepherd", "Brown and Black", true);
+            Pet myPet5 = new Pet(9003, "6", "Luna", "Chihuahua", "Tan", false);
+            //Adding Default Pets directly to Dictionary
+            animalList.Add(myPet1.Name, myPet1);
+            animalList.Add(myPet2.Name, myPet2);
+            animalList.Add(myPet3.Name, myPet3);
+            animalList.Add(myPet4.Name, myPet4);
+            animalList.Add(myPet5.Name, myPet5);
+            
             
             genID++;
 
@@ -86,7 +79,7 @@ namespace animal_shelter
                 userInp = Console.ReadLine();
                 //Will determine what method user requested based on first letter given, upercasing it for extra certainty
                 //Will also cycle through again if user types incorect value
-                //Return will use add feature
+                //Return will use add function
                 if (userInp.ToUpper().Equals("RETURN"))
                 {
                     /* RETURN
