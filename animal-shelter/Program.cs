@@ -10,42 +10,6 @@ namespace animal_shelter
 
     internal class Program
     {
-
-
-
-        //the dog class or the general pet class 
-        /*class Pet
-        {
-            public int petID;
-            public int age;
-            public string name;
-            public string breed;
-            public string color;
-            public bool petfriendly;
-
-            //Pet constructor
-            //Update: moved this to a new file
-            //Added in the pet constructor - Jin 
-            //public Pet(int age, string name, string breed)
-            //{
-            //    this.age = age;
-            //    this.name = name;
-            //    this.breed = breed;
-            //}
-
-        }*/
-
-        //the person class 
-        /*class Person()
-        {
-            public int age;
-            public string name;
-
-            //person constructor
-          
-
-        }*/
-
         //Making an empty dictionary with the name as the key to the Pet object
         static Dictionary<string, Pet> animalList = new Dictionary<string, Pet>();
 
@@ -90,7 +54,12 @@ namespace animal_shelter
 
             //Using object/constructor
             Pet myPet = new Pet(1462, 4, "Max", "Husky", "Black and White", true);
+            Pet myPet = new Pet(1256, 8, "Buddy", "Bulldog", "Gray", false);
+            Pet myPet = new Pet(1600, 2, "Coco", "Maltipoo", "Brown", true);
+            Pet myPet = new Pet(6892, 10, "Teddy", "German Shepherd", true);
+            Pet myPet = new Pet(9003, 6, "Luna", "Chihuahua", false);
             add(genID, myPet.Name, myPet.Age, myPet.Breed);
+
             
             genID++;
             
