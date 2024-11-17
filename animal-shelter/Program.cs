@@ -61,9 +61,9 @@ namespace animal_shelter
             Pet myPet = new Pet(9003, 6, "Luna", "Chihuahua", false);
             add(genID, myPet.Name, myPet.Age, myPet.Breed);
 
-            
+
             genID++;
-            
+
             //Console.WriteLine($"Key: {myPet.Name}, Age: {animalList["Max"].Age}"); 
 
             //Create While Loop That Allows User to Use Methods and Exits when done
@@ -174,7 +174,9 @@ namespace animal_shelter
                             //If user types animal name correctly, remove from Dictionary annd add to ID just cause
                             if (animalList.ContainsKey(userInp))
                             {
-                                //inspect function
+                                //inspect function which is essentially just a ToString
+                                Console.WriteLine(animalList[userInp]);
+                                Thread.Sleep(1000);
                             }
                             else if (userInp.ToUpper().Equals("EXIT"))
                             { //Return to Main Menu
@@ -186,7 +188,7 @@ namespace animal_shelter
                             }
                         }
                     }
-                    
+
                 }
                 //Browse list the to glance through the whole dictionary and its objects
                 else if (userInp.ToUpper().Equals("BROWSE"))
@@ -206,7 +208,7 @@ namespace animal_shelter
             //Code has been ended, user typed Leave
             Console.WriteLine("\nWe hope you enjoyed your experience!");
             Thread.Sleep(5000);
-            
+
         }
 
     }
